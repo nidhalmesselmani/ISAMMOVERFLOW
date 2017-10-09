@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'feeds/style.css' %}" />
+<div class="container-fluid">
+<ul class="sidebar-nav">
+<div class="row">
+	 <div class="col-md-2    .col-sm-2     " >
+	 </div>
+
+ <div class="col-md-8    .col-sm-8    feeds-card" >
+
+<h2> ACCEUIL</h2>
+ 	<div class="card">
+  <h4 class="card-header">Latest posts</h4>
+  <div class="card-body">
+            {% for feed in all_feeds %}
+            <a href="">{{feed.user}}</a>
+            {{feed.date |timesince}}
+          
+            <p>{{feed.post }}</p>
+          
+            {% endfor%}
+  </div>
+</div>
+	  </div>
+	   <div class="col-md-2    .col-sm-2     " >
+	 </div>
+	  
+</div>
+ 	 
+
+  </ul>
+</div>
+  {% endblock %}
